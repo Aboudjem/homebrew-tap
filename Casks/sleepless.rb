@@ -1,0 +1,38 @@
+cask "sleepless" do
+  version "1.0.0"
+  sha256 "ab89450748ad15596b6c2267cfbe46f9d8fa4f4f244dab6b5d9689dfc1073d6e"
+
+  url "https://github.com/Aboudjem/Sleepless/releases/download/v#{version}/Sleepless-#{version}.zip",
+      verified: "github.com/Aboudjem/Sleepless/"
+  name "Sleepless"
+  desc "Stay awake with the lid closed, on battery, with no external display"
+  homepage "https://github.com/Aboudjem/Sleepless"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  depends_on macos: :tahoe
+
+  app "Sleepless.app"
+
+  uninstall quit: "com.aboudjem.Sleepless"
+
+  zap trash: [
+    "~/Library/LaunchAgents/com.aboudjem.Sleepless.plist",
+    "~/Library/Preferences/com.aboudjem.Sleepless.plist",
+  ]
+
+  caveats <<~EOS
+    Sleepless is ad-hoc signed (not notarized). Approve the first launch in
+    System Settings then Privacy & Security then "Open Anyway".
+
+    To let it toggle lid-close sleep without a password prompt, run once:
+      #{appdir}/Sleepless.app/Contents/Resources/grant.sh
+
+    "brew uninstall" cannot remove the passwordless sudoers grant (it is root-owned).
+    To remove the grant too, run:
+      #{appdir}/Sleepless.app/Contents/Resources/uninstall.sh
+  EOS
+end
