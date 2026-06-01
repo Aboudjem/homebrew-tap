@@ -2,16 +2,10 @@ cask "sleepless" do
   version "1.0.0"
   sha256 "ab89450748ad15596b6c2267cfbe46f9d8fa4f4f244dab6b5d9689dfc1073d6e"
 
-  url "https://github.com/Aboudjem/Sleepless/releases/download/v#{version}/Sleepless-#{version}.zip",
-      verified: "github.com/Aboudjem/Sleepless/"
+  url "https://github.com/Aboudjem/Sleepless/releases/download/v#{version}/Sleepless-#{version}.zip"
   name "Sleepless"
   desc "Stay awake with the lid closed, on battery, with no external display"
   homepage "https://github.com/Aboudjem/Sleepless"
-
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
 
   depends_on macos: :tahoe
 
