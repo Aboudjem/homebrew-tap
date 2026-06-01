@@ -7,6 +7,11 @@ cask "sleepless" do
   desc "Stay awake with the lid closed, on battery, with no external display"
   homepage "https://github.com/Aboudjem/Sleepless"
 
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
   depends_on macos: :tahoe
 
   app "Sleepless.app"
