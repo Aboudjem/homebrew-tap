@@ -1,6 +1,6 @@
 cask "sleepless" do
-  version "1.1.0"
-  sha256 "30a43590629b6a3cd2e1610c249c137c4b235a5f319ce8d8a9e866c1fd914cde"
+  version "1.2.0"
+  sha256 "60683107a53e40d71c17455dfdf7c24c67aac6a4455c674802da54b202fcc797"
 
   url "https://github.com/Aboudjem/Sleepless/releases/download/v#{version}/Sleepless-#{version}.zip"
   name "Sleepless"
