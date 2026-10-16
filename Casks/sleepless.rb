@@ -12,7 +12,7 @@ cask "sleepless" do
     strategy :github_latest
   end
 
-  depends_on macos: :tahoe
+  depends_on macos: ">= :ventura"
 
   app "Sleepless.app"
 
